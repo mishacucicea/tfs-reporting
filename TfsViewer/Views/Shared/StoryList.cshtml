@@ -1,0 +1,64 @@
+﻿@model IEnumerable<TfsStory>
+
+@using (Html.BeginForm())
+{
+   
+    if (Model.Count() > 0)
+    {
+    <div>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Assigned To</th>
+                <th>State</th>
+                <th>Story Points </th>
+                <th>Iteration Path</th>
+                
+            </tr>
+
+            @foreach (var story in Model)
+            {
+               
+                    <tr>
+                        <td>
+                             <a href="@story.Link">@story.Id</a>
+                         </td>
+                         <td>
+                             @Html.DisplayFor(modelItem => story.Title)
+                         </td>
+                         <td>
+                             @Html.DisplayFor(modelItem => story.AssignedTo)
+                          </td>
+                         <td>
+                             @Html.DisplayFor(modelItem => story.State)
+                          </td>
+                        <td>
+                             @Html.DisplayFor(modelItem => story.StoryPoints)
+                         </td>
+                        
+                        <td>@Html.DisplayFor(modelItem => story.IterationPath)</td>
+                     </tr>      
+                      
+            }
+            <tfoot>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th>@Model.Sum(m => m.StoryPoints)</th>
+                    <th></th>
+                    <th></th>
+                    
+                </tr>
+            </tfoot>   
+        </table>
+    </div> 
+    }
+    else
+    {
+    <p>There are no results.</p>
+    }
+
+}

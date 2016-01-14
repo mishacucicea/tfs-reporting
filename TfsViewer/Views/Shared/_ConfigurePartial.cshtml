@@ -1,0 +1,8 @@
+﻿@{
+    string connectionLinkName = string.Format("Connection ({0})", ProjectHelper.ConnectionType);
+}
+<text>
+     <ul>
+        <li>@Html.ActionLink(connectionLinkName, "Connect", "Configuration", routeValues: null, htmlAttributes: null)</li>
+    </ul>
+</text>

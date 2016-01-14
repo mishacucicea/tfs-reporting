@@ -1,0 +1,19 @@
+﻿@model IEnumerable<TfsTask>
+@{
+    ViewBag.Title = "Unplanned Tasks";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <p>
+                Tasks that were added after the task beakdown.
+            </p>
+        </div>
+    </section>
+}
+
+@Html.Partial("TaskList", Model)

@@ -1,0 +1,11 @@
+﻿@model IEnumerable<TreeViewLocation>
+
+@{ViewBag.Title = "ExportTasks";
+}
+
+<h2>ExportTasks</h2>
+
+<h3>
+    Select Query to export from:
+</h3>
+@Html.Partial("QuerySelector", Model)

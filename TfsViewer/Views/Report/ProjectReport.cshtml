@@ -1,0 +1,49 @@
+﻿@model TfsViewer.Models.ProjectReportModel
+
+@{
+    ViewBag.Title = "Project Report";
+    ViewBag.Message = "Report of project evolution";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title</h1>
+            </hgroup>
+            <p>
+                @ViewBag.Message
+            </p>
+        </div>
+    </section>
+}
+
+<div>Start Date: @Model.ProjectStartDate</div>
+<div>Sheduled Release Date: @Model.ProjectReleaseDate</div>
+
+<br/>
+<br/>
+<div id="projectReport"> Project Report Chart</div>
+<div id="chartContainer" class="chartParrent"></div>
+
+@section scripts
+{
+    <script src="~/Scripts/canvasjs.js"></script>
+    <script src="~/Scripts/chartLogic.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            var labels = datesFromString(@Html.Raw(ViewBag.Labels));
+            var labelsPercentage = datesFromString(@Html.Raw(ViewBag.DatesPercentChart));
+            var valuesPercentage = @Html.Raw(ViewBag.ValuesPercentChart);
+            var valuesSPCompleted = @Html.Raw(ViewBag.CompletedSPValues);
+            var valuesSPTotal = @Html.Raw(ViewBag.TotalSPValues);
+
+            var chart = setupChart("chartContainer",  '@ProjectHelper.TfsContext.ProjectName');
+            createStoryPointsChart(chart, labels, valuesSPCompleted, valuesSPTotal, 44, 15);
+            createPercentageChart(chart, labelsPercentage, valuesPercentage);
+
+            chart.render();
+        }
+  </script>
+}

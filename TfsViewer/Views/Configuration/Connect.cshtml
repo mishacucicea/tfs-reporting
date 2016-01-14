@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Connect";
+}
+
+@{ if ((ProjectHelper.ConnectionType == "Default") || (@ViewBag.ChangeConfiguration))
+   {
+        <section id="connectForm">
+            <h2>Connect to a custom project.</h2>
+            @using (Html.BeginForm("Connect", "Configuration"))
+            { 
+            <fieldset>
+                <legend>Connection Form</legend>
+                <ol>
+                    <li>
+                        @Html.Label("Username: ")
+                        @Html.TextBox("username" , ViewBag.ChangeConfiguration ? ProjectHelper.TfsContext.Username : null)
+                    </li>
+                    <li>
+                        @Html.Label("Password: ")
+                        @Html.Password("password")
+                    </li>
+                    <li>
+                        @Html.Label("TfsUri: ")
+                        @Html.TextBox("uri", ViewBag.ChangeConfiguration ? ProjectHelper.TfsContext.Uri : null)
+                    </li>
+                    <li>
+                        @Html.Label("ProjectName: ")
+                        @Html.TextBox("projectName", ViewBag.ChangeConfiguration ? ProjectHelper.TfsContext.ProjectName : null)
+                    </li>
+                </ol>
+                <input type="submit" value="Connect" />
+            </fieldset>
+            <p>
+                @Html.ActionLink("Use default configuration", "Reset", "Configuration")
+            </p>
+            }
+       </section>
+   }
+   else
+   { 
+       <div>
+           You are logged using the following configuration:
+           <ul>
+               <li>
+                    <b>Project name</b>: @ProjectHelper.TfsContext.ProjectName.
+                    <b>Uri</b>: @ProjectHelper.TfsContext.Uri.
+               </li>
+           </ul>
+       </div>
+        <p>
+           Click @Html.ActionLink("here", "Connect", "Configuration", new { changeConfiguration = true }, null) if you want to change your configuration.
+       </p>
+   }
+}

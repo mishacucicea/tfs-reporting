@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TfsConnector", "TfsConnector\TfsConnector.csproj", "{B6B3D331-3908-4356-806E-7CFACE6B28B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TfsViewer", "TfsViewer\TfsViewer.csproj", "{033258C0-E3D1-4C01-9F41-FED67FADDA52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TfsConnectorTestClient", "TfsConnectorTestClient\TfsConnectorTestClient.csproj", "{0C196546-FC58-478F-9EFD-4189B401BB60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TfsReportingClient", "TfsReportingClient\TfsReportingClient.csproj", "{B5151464-4E5F-4BF4-8102-DB8D957691F1}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfsreporting.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = TfsConnector\\TfsConnector.csproj
+		SccProjectName1 = TfsConnector
+		SccLocalPath1 = TfsConnector
+		SccProjectUniqueName2 = TfsViewer\\TfsViewer.csproj
+		SccProjectName2 = TfsViewer
+		SccLocalPath2 = TfsViewer
+		SccProjectUniqueName3 = TfsConnectorTestClient\\TfsConnectorTestClient.csproj
+		SccProjectName3 = TfsConnectorTestClient
+		SccLocalPath3 = TfsConnectorTestClient
+		SccProjectUniqueName4 = TfsReportingClient\\TfsReportingClient.csproj
+		SccProjectName4 = TfsReportingClient
+		SccLocalPath4 = TfsReportingClient
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B6B3D331-3908-4356-806E-7CFACE6B28B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6B3D331-3908-4356-806E-7CFACE6B28B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6B3D331-3908-4356-806E-7CFACE6B28B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6B3D331-3908-4356-806E-7CFACE6B28B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{033258C0-E3D1-4C01-9F41-FED67FADDA52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{033258C0-E3D1-4C01-9F41-FED67FADDA52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{033258C0-E3D1-4C01-9F41-FED67FADDA52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{033258C0-E3D1-4C01-9F41-FED67FADDA52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C196546-FC58-478F-9EFD-4189B401BB60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C196546-FC58-478F-9EFD-4189B401BB60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C196546-FC58-478F-9EFD-4189B401BB60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C196546-FC58-478F-9EFD-4189B401BB60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5151464-4E5F-4BF4-8102-DB8D957691F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5151464-4E5F-4BF4-8102-DB8D957691F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5151464-4E5F-4BF4-8102-DB8D957691F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5151464-4E5F-4BF4-8102-DB8D957691F1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
