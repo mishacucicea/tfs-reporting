@@ -1,0 +1,25 @@
+﻿@model IEnumerable<TfsIteration>
+@{
+    ViewBag.Title = "Iterations";
+}
+
+<h2>Iterations</h2>
+<table>
+    <tr>
+        <td>Iteration Name</td>
+        <td>Iteration Path</td>
+        <td>Start Date</td>
+        <td>End date</td>
+    </tr>
+ @foreach (var item in Model)
+            {
+               
+                    <tr>
+                         <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                         <td>@Html.DisplayFor(modelItem => item.Path)</td>
+                        <td>@Html.DisplayFor(modelItem=>item.StartDate)</td>
+                        <td>@Html.DisplayFor(modelItem=>item.FinishDate)</td>
+                     </tr>      
+                      
+            }
+    </table>

@@ -1,0 +1,13 @@
+﻿@model IEnumerable<TreeViewLocation>
+
+@(Html.TreeView(Model)
+    .EmptyContent("No queries have been defined yet!")    
+    .Children(m => m.ChildLocations)
+    .HtmlAttributes(new { id = "tree"})
+    .ChildrenHtmlAttributes(new { @class = "subItem"})
+    .ItemText(m => m.Name)
+    .ItemTemplate(
+        @<text>
+            <a href="/Reports/TaskListing.aspx?queryId=@item.Id">@item.Name</a>
+        </text>)
+)

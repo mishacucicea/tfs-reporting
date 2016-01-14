@@ -1,0 +1,19 @@
+﻿@model IEnumerable<TfsTask>
+@{
+    ViewBag.Title = "View Tasks";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <p>
+                Task Evolution by assignment
+            </p>
+        </div>
+    </section>
+}
+
+@Html.Partial("TaskList", Model)

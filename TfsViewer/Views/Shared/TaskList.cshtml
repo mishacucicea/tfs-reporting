@@ -1,0 +1,68 @@
+﻿@model IEnumerable<TfsTask>
+
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.DropDownList("iterationPath", (SelectList)ViewBag.IterationList)
+        <input type="submit" name="Refresh" value="Refresh" />
+    </div>
+    if (Model.Any())
+    {
+    <div>
+        <table>
+            <tr>
+                <th>Id
+                </th>
+                <th>Title
+                </th>
+                <th>Assigned To
+                </th>
+                <th>Original Estimate
+                </th>
+                <th>Completed Work
+                </th>
+                <th>Remaining Work
+                </th>
+            </tr>
+            @foreach (var task in Model)
+                {
+                    <tr class="@(task.OriginalEstimate < task.CompletedWork ? "error" : "")">
+                         <td>
+                             <a href="@task.Link">@task.Id</a>
+                         </td>
+                         <td>
+                             @Html.DisplayFor(modelItem => task.Title)
+                    </td>
+                         <td>
+                             @Html.DisplayFor(modelItem => task.AssignedTo)
+                    </td>
+                         <td>
+                             @Html.DisplayFor(modelItem => task.OriginalEstimate)
+                    </td>
+                         <td>
+                             @Html.DisplayFor(modelItem => task.CompletedWork)
+                    </td>
+                         <td>
+                             @Html.DisplayFor(modelItem => task.RemainingWork)
+                </td>
+                     </tr>
+                }
+            <tfoot>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th>@Model.Sum(m => m.OriginalEstimate)</th>
+                    <th>@Model.Sum(m => m.CompletedWork)</th>
+                    <th>@Model.Sum(m => m.RemainingWork)</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div> 
+    }
+    else
+    {
+    <p>There are no results.</p>
+    }
+
+}

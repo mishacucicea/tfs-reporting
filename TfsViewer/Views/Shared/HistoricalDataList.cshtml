@@ -1,0 +1,77 @@
+﻿@model IEnumerable<TfsStory>
+@{
+    ViewBag.Title = "StoriesList";
+}
+
+@using (Html.BeginForm())
+{
+     if (Model.Count() > 0)
+    {
+    <div>
+        <table>
+            <tr>
+               <th>Id
+                </th>
+                <th>Title
+                </th>
+                <th>Assigned To
+                </th>
+                <th>Story Points
+                </th>
+                  <th>Created Date
+                </th>
+                  <th>First Estimation Date
+                </th>
+                  <th>Closed Date
+               </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <a href="@item.Link">@item.Id</a>
+                    </td>
+                    <td>
+                        <b>@item.Title</b>
+                    </td>
+                    <td>
+                        <b>@item.AssignedTo</b>
+                    </td>
+                    <td>
+                        <b>@item.StoryPoints</b>
+                    </td>
+                    <td>
+                        <b>@item.CreatedDate</b>
+                    </td>
+                    <td>
+                        <b>@item.FirstEstimationDate</b>
+                    </td>
+                       <td>
+                        <b>@item.ClosedDate</b>
+                    </td>
+                </tr>
+
+            }
+            <tfoot>
+                <tr>
+                   
+                    <th>Total SP: </th>
+                    <th>@Model.Sum(m => m.StoryPoints)</th>
+                    <th>Total Unestimated:</th>
+                    <th>@Model.Where(x=>(x.FirstEstimationDate > DateTime.Now || x.FirstEstimationDate == null)
+                                && x.CreatedDate <= DateTime.Now ).Count()</th>
+                    <th> Total:</th>
+                    <th>@Model.Where(x=>(x.ClosedDate > DateTime.Now  || x.ClosedDate == null )).Count()</th>
+                    <th>Percent Of Unestimated Stories: </th>
+                    <th>@ProjectHelper.PercentageOfUnestimateTasks(DateTime.Now)%</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div> 
+    }
+    else
+    {
+    <p>There are no results.</p>
+    }
+}
