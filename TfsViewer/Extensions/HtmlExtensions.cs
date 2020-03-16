@@ -6,7 +6,6 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.UI;
-using Microsoft.Reporting.WebForms;
 
 namespace TfsViewer
 {

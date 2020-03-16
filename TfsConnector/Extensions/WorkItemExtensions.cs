@@ -1,10 +1,7 @@
 ﻿using Microsoft.TeamFoundation.WorkItemTracking.Client;
-using Microsoft.TeamFoundation.WorkItemTracking.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TfsConnector
 {
