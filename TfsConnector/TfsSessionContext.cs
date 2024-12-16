@@ -1,26 +1,30 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web;
-using System.Web.SessionState;
+using Microsoft.AspNetCore.Http;
 
 namespace TfsConnector
 {
     public class TfsSessionContext : ITfsContext
     {
-        private HttpSessionState session = HttpContext.Current.Session;
+        private ISession session;
+
+        public TfsSessionContext(IHttpContextAccessor httpContextAccessor)
+        {
+            session = httpContextAccessor.HttpContext.Session;
+        }
 
         public string Uri
         {
             get
             {
-                return (string)session["Uri"];
+                return session.GetString("Uri");
             }
             set
             {
-                session["Uri"] = value;
+                session.SetString("Uri", value);
             }
         }
 
@@ -28,11 +32,11 @@ namespace TfsConnector
         {
             get
             {
-                return (string)session["Username"];
+                return session.GetString("Username");
             }
             set
             {
-                session["Username"] = value;
+                session.SetString("Username", value);
             }
         }
 
@@ -40,11 +44,11 @@ namespace TfsConnector
         {
             get
             {
-                return (string)session["Password"];
+                return session.GetString("Password");
             }
             set
             {
-                session["Password"] = value;
+                session.SetString("Password", value);
             }
         }
 
@@ -52,11 +56,11 @@ namespace TfsConnector
         {
             get
             {
-                return (string)session["ProjectName"];
+                return session.GetString("ProjectName");
             }
             set
             {
-                session["ProjectName"] = value;
+                session.SetString("ProjectName", value);
             }
         }
     }
