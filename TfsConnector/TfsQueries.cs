@@ -1,9 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.TeamFoundation.Framework.Client.Catalog.Objects;
 using Microsoft.TeamFoundation.WorkItemTracking.Client;
 using System.Collections;
 using System.Diagnostics;

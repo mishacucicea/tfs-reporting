@@ -1,7 +1,6 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Configuration;
 using System.Diagnostics;
 using System.Linq;
 using System.Net;
@@ -14,7 +13,6 @@ using Microsoft.TeamFoundation.WorkItemTracking.Client;
 using TfsConnector;
 using System.IO;
 using System.Runtime.Serialization.Json;
-using System.Web;
 using System.Collections.Specialized;
 
 namespace TfsConnectorTestClient
